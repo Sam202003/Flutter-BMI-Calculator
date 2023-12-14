@@ -19,9 +19,13 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
+
+
   TextEditingController wtController = TextEditingController();
   TextEditingController ftController = TextEditingController();
   TextEditingController inController = TextEditingController();
+
+
   Color bgColor = Colors.indigo.shade200;
   String result = "";
 
@@ -95,6 +99,8 @@ class _BMICalculatorState extends State<BMICalculator> {
     var inch = inController.text.toString();
 
     if (wt.isNotEmpty && ft.isNotEmpty && inch.isNotEmpty) {
+
+
       var iWt = int.parse(wt);
       var iFt = int.parse(ft);
       var iInch = int.parse(inch);
@@ -108,20 +114,25 @@ class _BMICalculatorState extends State<BMICalculator> {
       var msg = "";
 
       setState(() {
+
         if (bmi > 25) {
           msg = "You're Overweight";
           result = "$msg\nYour BMI is: ${bmi.toStringAsFixed(2)}";
           bgColor = Colors.orange.shade200;
+
         } else if (bmi < 18.5) {
           msg = "You're Underweight";
           result = "$msg\nYour BMI is: ${bmi.toStringAsFixed(2)}";
           bgColor = Colors.red.shade200;
+
         } else {
           msg = "You're Healthy!";
           result = "$msg\nYour BMI is: ${bmi.toStringAsFixed(2)}";
           bgColor = Colors.green.shade200;
+
         }
       });
+      
     } else {
       setState(() {
         result = "Please fill all the required fields!";
